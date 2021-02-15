@@ -1,0 +1,25 @@
+The script used is run_analysis.R
+
+1.Assign each data to variables
+  features<-features.txt : 561 rows, 2 columns
+  ActLabels <- activity_labels.txt : 6 rows, 2 columns
+  dfSubjectTest <- test/subject_test.txt: 2947 rows, 1 column
+  dfTestX <- test/X_test.txt: 2947 rows, 561 columns
+  dfTestActivity <- test/y_test.txt : 2947 rows, 1 columns
+  dfTrainSubject <- test/subject_train.txt : 7352 rows, 1 column
+  dfTrainX <- test/X_train.txt : 7352 rows, 561 columns
+  dfTrainActivity <- test/y_train.txt : 7352 rows, 1 columns
+  
+2. Merge Training and Dataset
+    dfTest<-merge: dfTestActivity, dfSubjectTest, dfTestX
+    dfTrain<-merge: dfTrainActivity, dfTrainSubject,dfTrainX
+    row bind dfTest and dfTrain to df table
+    
+3. Extrat Measurements including only mean and standard deviation
+    Subset the main dataframe df to include the columns including Subject, Activity, and columns with mean and standard deviation
+    
+4. Use descriptive names
+    Replace any columns with abbreviated names to be unabbreviated
+    
+5. Create independent Tidy data
+    aggregate the data by taking the mean of each column and exporting the Tidy data.
